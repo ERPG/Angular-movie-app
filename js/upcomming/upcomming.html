@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="page-header">
+        <h1>{{ section }}</h1>
+        <form action="" method="POST" class="form-inline" role="form" ng-submit="searchMovie($event)">
+            <div class="form-group">
+                <label class="sr-only" for="">label</label>
+                <input ng-model="query" type="text" class="form-control" placeholder="Select movie..">
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        <ul class="contend">
+            <li ng-repeat="movie in movies|filter: {title : query}">
+                <img src="http://image.tmdb.org/t/p/w150/{{ movie.poster_path }}">
+                <h4>{{ movie.title }}</h4>
+                <p>From {{ movie.release_date }}</p>
+            </li>
+        </ul>
+    </div>
+</div>
